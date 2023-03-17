@@ -20,7 +20,7 @@ File contents (blob)
 
 ### Action
 1. Upload file to S3
-2. Get publicly accessible url of file
+2. Get ARN and publicly accessible url of file
 3. Call InsertFile in DB
 
 ### Output
@@ -43,3 +43,15 @@ List of
 * isModifyable
 
 ## Delete File
+### Input
+File ID
+User ID
+
+### Action
+1. Call GetFile in DB
+2. Check if UserID=file.OwnerID (If not return 403)
+3. Delete file from S3
+4. Call DeleteFile in DB
+
+### Output
+None
