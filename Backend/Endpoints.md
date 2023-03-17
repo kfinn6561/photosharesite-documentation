@@ -20,12 +20,26 @@ File contents (blob)
 
 ### Action
 1. Upload file to S3
-2. Get url of file
+2. Get publicly accessible url of file
 3. Call InsertFile in DB
 
 ### Output
 None
 
 ## Get Files
+### Input
+User ID
+
+### Action
+1. Call SelectFiles in DB
+2. For each file set isModifyable=(file.UserID==UserID)
+3. Return list of file details
+
+### Output
+List of
+* File ID
+* File Name
+* URL
+* isModifyable
 
 ## Delete File
